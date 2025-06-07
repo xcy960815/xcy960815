@@ -33,7 +33,7 @@
 ## 💻 Tech Stack
 
 ### 🔧 Languages
-<div align="center">
+<div align="left">
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" />
   <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" />
   <img src="https://img.shields.io/badge/Java-ED8B00?style=for-the-badge&logo=openjdk&logoColor=white" />
@@ -42,7 +42,7 @@
 </div>
 
 ### 🖥️ Frontend
-<div align="center">
+<div align="left">
   <img src="https://img.shields.io/badge/Vue-34495E?style=for-the-badge&logo=vue.js&logoColor=4FC08D" />
   <img src="https://img.shields.io/badge/Nuxt3-00DC82?style=for-the-badge&logo=nuxt.js&logoColor=white" />
   <img src="https://img.shields.io/badge/Vite-646CFF?style=for-the-badge&logo=vite&logoColor=white" />
@@ -51,7 +51,7 @@
 </div>
 
 ### ⚙️ Backend
-<div align="center">
+<div align="left">
   <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" />
   <img src="https://img.shields.io/badge/Spring_Boot-6DB33F?style=for-the-badge&logo=spring-boot&logoColor=white" />
   <img src="https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white" />
@@ -59,7 +59,7 @@
 </div>
 
 ### 🧰 Tools & Utilities
-<div align="center">
+<div align="left">
   <img src="https://img.shields.io/badge/Git-F05032?style=for-the-badge&logo=git&logoColor=white" />
   <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white" />
   <img src="https://img.shields.io/badge/VS_Code-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white" />
@@ -67,9 +67,10 @@
 </div>
 
 ## 📊 GitHub Stats
-<div align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=xcy960815&show_icons=true&theme=tokyonight" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=xcy960815&layout=compact&theme=tokyonight" />
+<div align="center" style="width:100%;">
+  <img src="https://github-readme-stats.vercel.app/api?username=xcy960815&show_icons=true&theme=tokyonight" width="400"/>
+  <br/>
+  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=xcy960815&layout=compact&theme=tokyonight" width="400"/>
 </div>
 
 ## 📈 Activity Graph

@@ -1,33 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="440" height="258" viewBox="0 0 440 258" role="img" aria-labelledby="title desc">
 <title id="title">Most used languages</title>
-<desc id="desc">TypeScript: 51.9%; Vue: 11.1%; PLpgSQL: 9.7%; Java: 8.1%; Python: 5.6%; Other: 13.6%</desc>
+<desc id="desc">TypeScript: 51.8%; Vue: 11.1%; PLpgSQL: 9.7%; Java: 8.0%; Python: 5.8%; Other: 13.6%</desc>
 <rect x="0.5" y="0.5" width="439" height="257" rx="12" fill="#1a1b27" stroke="#2a2f45"/>
 <g font-family="-apple-system, BlinkMacSystemFont, Segoe UI, sans-serif">
 <text x="26" y="36" font-size="22" fill="#70a5fd" text-anchor="start" font-weight="600">Most Used Languages</text>
 <text x="26" y="68" font-size="13" fill="#a9b1d6" text-anchor="start" font-weight="400">TypeScript</text>
-<text x="414" y="68" font-size="13" fill="#a9b1d6" text-anchor="end" font-weight="400">51.9%</text>
+<text x="414" y="68" font-size="13" fill="#a9b1d6" text-anchor="end" font-weight="400">51.8%</text>
 <rect x="26" y="74" width="388" height="5" rx="2.5" fill="#2a2f45"/>
-<rect x="26" y="74" width="201.34" height="5" rx="2.5" fill="#3178c6"/>
+<rect x="26" y="74" width="200.93" height="5" rx="2.5" fill="#3178c6"/>
 <text x="26" y="95" font-size="13" fill="#a9b1d6" text-anchor="start" font-weight="400">Vue</text>
 <text x="414" y="95" font-size="13" fill="#a9b1d6" text-anchor="end" font-weight="400">11.1%</text>
 <rect x="26" y="101" width="388" height="5" rx="2.5" fill="#2a2f45"/>
-<rect x="26" y="101" width="43.09" height="5" rx="2.5" fill="#41b883"/>
+<rect x="26" y="101" width="43.00" height="5" rx="2.5" fill="#41b883"/>
 <text x="26" y="122" font-size="13" fill="#a9b1d6" text-anchor="start" font-weight="400">PLpgSQL</text>
 <text x="414" y="122" font-size="13" fill="#a9b1d6" text-anchor="end" font-weight="400">9.7%</text>
 <rect x="26" y="128" width="388" height="5" rx="2.5" fill="#2a2f45"/>
-<rect x="26" y="128" width="37.80" height="5" rx="2.5" fill="#336790"/>
+<rect x="26" y="128" width="37.72" height="5" rx="2.5" fill="#336790"/>
 <text x="26" y="149" font-size="13" fill="#a9b1d6" text-anchor="start" font-weight="400">Java</text>
-<text x="414" y="149" font-size="13" fill="#a9b1d6" text-anchor="end" font-weight="400">8.1%</text>
+<text x="414" y="149" font-size="13" fill="#a9b1d6" text-anchor="end" font-weight="400">8.0%</text>
 <rect x="26" y="155" width="388" height="5" rx="2.5" fill="#2a2f45"/>
-<rect x="26" y="155" width="31.27" height="5" rx="2.5" fill="#b07219"/>
+<rect x="26" y="155" width="31.21" height="5" rx="2.5" fill="#b07219"/>
 <text x="26" y="176" font-size="13" fill="#a9b1d6" text-anchor="start" font-weight="400">Python</text>
-<text x="414" y="176" font-size="13" fill="#a9b1d6" text-anchor="end" font-weight="400">5.6%</text>
+<text x="414" y="176" font-size="13" fill="#a9b1d6" text-anchor="end" font-weight="400">5.8%</text>
 <rect x="26" y="182" width="388" height="5" rx="2.5" fill="#2a2f45"/>
-<rect x="26" y="182" width="21.68" height="5" rx="2.5" fill="#3572A5"/>
+<rect x="26" y="182" width="22.42" height="5" rx="2.5" fill="#3572A5"/>
 <text x="26" y="203" font-size="13" fill="#a9b1d6" text-anchor="start" font-weight="400">Other</text>
 <text x="414" y="203" font-size="13" fill="#a9b1d6" text-anchor="end" font-weight="400">13.6%</text>
 <rect x="26" y="209" width="388" height="5" rx="2.5" fill="#2a2f45"/>
-<rect x="26" y="209" width="52.83" height="5" rx="2.5" fill="#6b7394"/>
+<rect x="26" y="209" width="52.72" height="5" rx="2.5" fill="#6b7394"/>
 <text x="26" y="241" font-size="11" fill="#a9b1d6" text-anchor="start" font-weight="400">Share of code bytes in owned public, non-fork repositories.</text>
 </g>
 </svg>

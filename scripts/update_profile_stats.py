@@ -1,6 +1,7 @@
 """Generate README SVGs from public GitHub data, without an image service."""
 
 import argparse
+import hashlib
 import json
 import math
 import os
@@ -17,6 +18,7 @@ from urllib.request import Request, urlopen
 
 
 ROOT = Path(__file__).resolve().parents[1]
+IMAGE_NAMES = ("stats.svg", "languages.svg", "activity.svg")
 QUERY = """
 query($login: String!, $after: String) {
   user(login: $login) {
@@ -145,7 +147,7 @@ def card(width, height, title, description, body):
             + "\n".join(body) + '\n</g>\n</svg>\n')
 
 
-def stats_card(username, stats, today):
+def stats_card(username, stats, updated_at):
     rows = [("Public repositories", stats["repositories"]), ("Stars earned", stats["stars"]),
             ("Forks received", stats["forks"]), ("Followers", stats["followers"])]
     body = [text(26, 36, "GitHub Stats", 22, "#70a5fd", weight="600")]
@@ -153,11 +155,11 @@ def stats_card(username, stats, today):
         y = 76 + index * 34
         body.extend([text(26, y, label), text(414, y, f"{value:,}", 18, "#7dcfff", "end", "600")])
     body.extend([text(26, 222, "Repositories, stars and forks exclude forks and private repos.", 11),
-                 text(26, 241, f"@{username} · Updated {today.isoformat()}", 11)])
+                 text(26, 241, f"@{username} · Updated {updated_at}", 11)])
     return card(440, 258, f"{username}'s GitHub stats", "; ".join(f"{label}: {value}" for label, value in rows), body)
 
 
-def languages_card(stats):
+def languages_card(stats, updated_at):
     languages = stats["languages"]
     total = sum(languages.values())
     entries = [(name, count, stats["colors"][name]) for name, count in languages.most_common(5)]
@@ -173,12 +175,13 @@ def languages_card(stats):
                      f'<rect x="26" y="{y + 6}" width="{388 * count / total:.2f}" height="5" rx="2.5" fill="{color}"/>'])
     if not total:
         body.append(text(26, 100, "No public language data available."))
-    body.append(text(26, 241, "Share of code bytes in owned public, non-fork repositories.", 11))
+    body.extend([text(26, 231, "Share of code bytes in owned public, non-fork repositories.", 11),
+                 text(26, 249, f"Updated {updated_at}", 11)])
     description = "; ".join(f"{name}: {100 * count / total:.1f}%" for name, count, _ in entries)
     return card(440, 258, "Most used languages", description, body)
 
 
-def activity_card(username, activity, today):
+def activity_card(username, activity, today, updated_at):
     left, right, top, bottom = 54, 834, 90, 236
     maximum = max(4, math.ceil(max(count for _, count in activity) / 4) * 4)
     points = [(left + index * (right - left) / 30, bottom - count * (bottom - top) / maximum)
@@ -196,8 +199,31 @@ def activity_card(username, activity, today):
         body.append(f'<circle cx="{x:.2f}" cy="{y:.2f}" r="3" fill="#7dcfff"><title>{day}: {count} contributions</title></circle>')
     for index in (0, 7, 14, 21, 30):
         body.append(text(points[index][0], 258, activity[index][0].strftime("%m-%d"), 11, anchor="middle"))
-    body.append(text(26, 285, f"Public GitHub contribution calendar · Updated {today.isoformat()}", 11))
+    body.append(text(26, 285, f"Public GitHub contribution calendar · Updated {updated_at}", 11))
     return card(860, 302, f"{username}'s contribution activity", "Last 31 days of the public GitHub contribution calendar.", body)
+
+
+def snapshot_digest(username, stats, activity):
+    # Include the generator so presentation changes also rebuild existing cards.
+    snapshot = {
+        "username": username,
+        "stats": stats,
+        "activity": [(day.isoformat(), count) for day, count in activity],
+        "generator": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+    }
+    encoded = json.dumps(snapshot, sort_keys=True, separators=(",", ":")).encode()
+    return hashlib.sha256(encoded).hexdigest()
+
+
+def snapshot_unchanged(output_dir, digest):
+    for name in IMAGE_NAMES:
+        try:
+            root = ET.parse(output_dir / name).getroot()
+        except (OSError, ET.ParseError):
+            return False
+        if root.get("data-source-hash") != digest:
+            return False
+    return True
 
 
 def main():
@@ -211,14 +237,22 @@ def main():
     if not token:
         # GitHub CLI is only needed for local runs; Actions supplies GITHUB_TOKEN.
         token = subprocess.run(["gh", "auth", "token"], check=True, capture_output=True, text=True).stdout.strip()
-    today = datetime.now(timezone(timedelta(hours=8))).date()
+    now = datetime.now(timezone(timedelta(hours=8)))
+    today = now.date()
     stats = public_repository_stats(args.username, token)
     activity = public_activity(args.username, today)
+    digest = snapshot_digest(args.username, stats, activity)
+    if snapshot_unchanged(args.output_dir, digest):
+        print("No data changes; keeping existing images and update timestamps.")
+        return
+    updated_at = now.strftime("%Y-%m-%d %H:%M UTC+08:00")
     images = {
-        "stats.svg": stats_card(args.username, stats, today),
-        "languages.svg": languages_card(stats),
-        "activity.svg": activity_card(args.username, activity, today),
+        "stats.svg": stats_card(args.username, stats, updated_at),
+        "languages.svg": languages_card(stats, updated_at),
+        "activity.svg": activity_card(args.username, activity, today, updated_at),
     }
+    images = {name: content.replace('<svg ', f'<svg data-source-hash="{digest}" ', 1)
+              for name, content in images.items()}
     # Fetch and validate everything before replacing any existing image.
     for content in images.values():
         ET.fromstring(content)

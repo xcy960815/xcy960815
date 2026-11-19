@@ -26,7 +26,7 @@
 ## 🌟 About Me
 
 - 🔭 I build reusable Vue 3 components and SQL tools, including editor integration, table interactions, and SQL formatting.
-- 🤝 My contributions to AntV/G2 and AntV/GUI include SSR compatibility and TypeScript export fixes.
+- 🤝 I contribute to ATVLoadly and AntV, with fixes for install reliability, device discovery, and build compatibility.
 - 🌱 Working toward full-stack development, with a focus on tools that solve practical development problems.
 
 ## 🚀 Featured Projects
@@ -43,9 +43,18 @@
 
 ## 🤝 Open Source Contributions
 
-Selected merged pull requests:
+### [ATVLoadly](https://github.com/bitxeno/atvloadly)
 
-| Repository | Contribution | Pull request |
+| Contribution | Merged PR | Closed issue |
+| --- | --- | --- |
+| Reported and fixed a misleading error after an IPA upload. If the Apple TV does not confirm installation before the timeout, the app reports the timeout and skips the automatic re-upload. | [#276](https://github.com/bitxeno/atvloadly/pull/276) | [#275](https://github.com/bitxeno/atvloadly/issues/275) |
+| Fixed a Linux device discovery loop that could consume a full CPU core after a D-Bus disconnect. Discovery can reconnect once the service returns. | [#273](https://github.com/bitxeno/atvloadly/pull/273) | |
+| Fixed the login dialog so users can submit another verification code when prompted again. | [#272](https://github.com/bitxeno/atvloadly/pull/272) | |
+| Reported and fixed a bug that reset the web UI to English after selecting Chinese and reloading. | [#269](https://github.com/bitxeno/atvloadly/pull/269) | [#268](https://github.com/bitxeno/atvloadly/issues/268) |
+
+### AntV
+
+| Repository | Contribution | Merged PR |
 | --- | --- | --- |
 | AntV/G2 | Fixed an ES module `require` error in SSR builds. | [#5450](https://github.com/antvis/G2/pull/5450) |
 | AntV/GUI | Fixed an ES module `require` error in SSR builds. | [#308](https://github.com/antvis/GUI/pull/308) |

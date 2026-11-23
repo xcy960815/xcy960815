@@ -1,4 +1,4 @@
-<svg data-source-hash="2a52fbf9c2607b245d3330695401a716d6f8d03811b8492652d4371bbd81b6ad" xmlns="http://www.w3.org/2000/svg" width="440" height="258" viewBox="0 0 440 258" role="img" aria-labelledby="title desc">
+<svg data-source-hash="c99f3fc1ac4bf72142a8d89d5d917eca106fb0fe5a33c1da37078f6088b60b4f" xmlns="http://www.w3.org/2000/svg" width="440" height="258" viewBox="0 0 440 258" role="img" aria-labelledby="title desc">
 <title id="title">Most used languages</title>
 <desc id="desc">TypeScript: 46.2%; Vue: 9.9%; Swift: 9.1%; PLpgSQL: 8.7%; Java: 7.2%; Other: 18.9%</desc>
 <rect x="0.5" y="0.5" width="439" height="257" rx="12" fill="#1a1b27" stroke="#2a2f45"/>
@@ -29,6 +29,6 @@
 <rect x="26" y="209" width="388" height="5" rx="2.5" fill="#2a2f45"/>
 <rect x="26" y="209" width="73.49" height="5" rx="2.5" fill="#6b7394"/>
 <text x="26" y="231" font-size="11" fill="#a9b1d6" text-anchor="start" font-weight="400">Share of code bytes in owned public, non-fork repositories.</text>
-<text x="26" y="249" font-size="11" fill="#a9b1d6" text-anchor="start" font-weight="400">Updated 2026-11-23 00:47 UTC+08:00</text>
+<text x="26" y="249" font-size="11" fill="#a9b1d6" text-anchor="start" font-weight="400">Updated 2026-11-24 06:45 UTC+08:00</text>
 </g>
 </svg>
